@@ -1,8 +1,7 @@
 
 ## zsh_config
 
-# ZSH_CONFIG_REPO="git://github.com/zzzsochi/zsh_config.git"
-# ZSH_CONFIG_TEMP_DIR="/tmp/zsh_config_tmp"
+# ZSH_REPO="git://github.com/zzzsochi/zsh_config.git"
 
 ## choose between pythonbrew and virtualenvwrapper
 

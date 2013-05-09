@@ -40,7 +40,7 @@ elif [ "$1" == "install" ]; then
     if [ ! -f ~/.zprofile ]; then
         cp "$ZSH/zprofile-template" "$HOME/.zprofile"
     else
-        echo "$HOME/.zprofile is exists! Skip..."
+        echo "File ~/.zprofile is exists! Skip..."
     fi
 
     echo "Please restart zsh..."

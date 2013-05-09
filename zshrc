@@ -28,6 +28,9 @@ function zsh_config_update() {
         ZSH_REPO="git://github.com/zzzsochi/zsh_config.git"
     fi
 
-    cd "$ZSH"
-    git pull "$ZSH_REPO"
+    (
+        cd "$ZSH"
+        git reset --hard
+        git pull "$ZSH_REPO"
+    )
 }

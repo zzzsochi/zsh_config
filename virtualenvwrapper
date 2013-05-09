@@ -1,0 +1,54 @@
+# virtualenvwrapper
+
+# $WORKON_HOME
+# $VIRTUALENVWRAPPER_PYTHON
+# $VIRTUALENVWRAPPER_VIRTUALENV
+#    For this see virtualenvwrapper documentation:
+#    http://virtualenvwrapper.readthedocs.org/en/latest/install.html#configuration
+
+# $VIRTUALENVWRAPPER
+#     virtualenvwrapper.sh script
+
+
+if [ -z "$WORKON_HOME" ]; then
+    if [ -d "$HOME/.virtualenvwrapper" ]; then
+        export WORKON_HOME="$HOME/.virtualenvwrapper"
+    else
+        export WORKON_HOME="$HOME/.virtualenvs"
+    fi
+fi
+
+
+if [ -z "$VIRTUALENVWRAPPER_PYTHON" ]; then
+    if [ -f "/usr/local/bin/python2.7" ]; then
+        export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python2.7"
+    elif [ -f "/usr/bin/python2.7" ]; then
+        export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python2.7"
+    fi
+fi
+
+
+if [ -z "$VIRTUALENVWRAPPER_VIRTUALENV" ]; then
+    if [ -f "/usr/local/bin/virtualenv-2.7" ]; then
+        export VIRTUALENVWRAPPER_VIRTUALENV="/usr/local/bin/virtualenv-2.7"
+    elif [ -f "/usr/bin/virtualenv-2.7" ]; then
+        export VIRTUALENVWRAPPER_VIRTUALENV="/usr/bin/virtualenv-2.7"
+    elif [ -f "/usr/local/bin/virtualenv" ]; then
+        export VIRTUALENVWRAPPER_VIRTUALENV="/usr/local/bin/virtualenv"
+    fi
+fi
+
+
+if [ -z $VIRTUALENVWRAPPER ]; then
+    if [ -f "/usr/local/bin/virtualenvwrapper.sh" ]; then
+        export VIRTUALENVWRAPPER="/usr/local/bin/virtualenvwrapper.sh"
+    elif [ -f "/usr/bin/virtualenvwrapper.sh" ]; then
+        export VIRTUALENVWRAPPER="/usr/bin/virtualenvwrapper.sh"
+    elif [ -f "/etc/bash_completion.d/virtualenvwrapper" ]; then
+        export VIRTUALENVWRAPPER="/etc/bash_completion.d/virtualenvwrapper"
+    fi
+fi
+
+[ ! -z "$VIRTUALENVWRAPPER" ] && source "$VIRTUALENVWRAPPER"
+[ ! -z "$VIRTUALENV_WORKON" ] && workon "$VIRTUALENV_WORKON" > /dev/null
+

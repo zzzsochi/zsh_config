@@ -1,0 +1,37 @@
+# zkbd
+
+autoload zkbd
+
+[ ! -d ~/.zsh/zkbd.d ] && mkdir -p ~/.zsh/zkbd
+
+if [[ $OSTYPE == darwin* ]]; then
+    local file_name=$TERM-"darwin"
+else
+    local file_name=$TERM-${DISPLAY:-$VENDOR-$OSTYPE}
+fi
+
+
+if [ -f ~/.zsh/zkbd.d/$file_name ]; then
+    source ~/.zsh/zkbd.d/$file_name
+
+elif [ -f ~/.zkbd/$file_name ]; then
+    source ~/.zkbd/$file_name
+
+else
+    mkdir -p ~/.zkbd
+    zkbd
+    source ~/.zkbd/$file_name
+fi
+
+
+[[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
+[[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode
+[[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line
+[[ -n ${key[PageUp]} ]] && bindkey "${key[PageUp]}" up-line-or-history
+[[ -n ${key[Delete]} ]] && bindkey "${key[Delete]}" delete-char
+[[ -n ${key[End]} ]] && bindkey "${key[End]}" end-of-line
+[[ -n ${key[PageDown]} ]] && bindkey "${key[PageDown]}" down-line-or-history
+[[ -n ${key[Up]} ]] && bindkey "${key[Up]}" up-line-or-search
+[[ -n ${key[Left]} ]] && bindkey "${key[Left]}" backward-char
+[[ -n ${key[Down]} ]] && bindkey "${key[Down]}" down-line-or-search
+[[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char

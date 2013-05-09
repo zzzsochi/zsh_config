@@ -1,0 +1,28 @@
+# completion
+
+autoload -Uz compinit
+compinit
+
+#zstyle ':completion:*' menu yes select
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character to insert%s'
+zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+
+zstyle ':completion:*:processes' command 'ps -xuf'
+zstyle ':completion:*:processes' sort false
+zstyle ':completion:*:processes-names' command 'ps xho command'
+
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
+
+if [ -f "$HOME/.ssh/known_hosts" ]; then
+    hosts=(${${${(f)"$(<$HOME/.ssh/known_hosts)"}%%\ *}%%,*})
+    zstyle ':completion:*:hosts' hosts $hosts
+fi
+
+zstyle ':completion:*:(ssh|scp):*' tag-order '! users'
+
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}

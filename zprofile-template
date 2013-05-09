@@ -1,0 +1,23 @@
+
+## zsh_config
+
+# ZSH_CONFIG_REPO="git://github.com/zzzsochi/zsh_config.git"
+# ZSH_CONFIG_TEMP_DIR="/tmp/zsh_config_tmp"
+
+## choose between pythonbrew and virtualenvwrapper
+
+# PYTHON_MANAGER=pythonbrew
+# PYTHON_MANAGER=virtualenvwrapper
+
+## pythonbrew settings
+
+# PYTHONBREW_ROOT=$HOME/.pythonbrew
+# PYTHONBREW_SWITCH="2.7.3"
+# PYTHONBREW_VENV="venv_name"
+
+## virtualenvwrapper settings
+
+# VIRTUALENVWRAPPER=/usr/local/bin/virtualenvwrapper.sh
+# VIRTUALENV_WORKON='venv'
+#   For other options please see the virtualenvwrapper documentation:
+#   http://virtualenvwrapper.readthedocs.org/en/latest/install.html#configuration

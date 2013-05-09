@@ -1,4 +1,4 @@
-# My complex zsh config
+# My config for zsh
 
 ## Goals
 
@@ -24,7 +24,7 @@
 
 ### Automatic
 
-    curl -L https://github.com/zzzsochi/zsh-config/raw/master/install.sh | sh
+    curl -L https://raw.github.com/zzzsochi/zsh_config/master/install.sh | sh
 
 ### Manual
 
@@ -42,4 +42,4 @@
 
 All configuration locate in one file: [~/zprofile][zprofile].
 
-[zprofile]: https://github.com/zzzsochi/zsh-config/raw/master/zprofile-template "zprofile-template"
+[zprofile]: https://github.com/zzzsochi/zsh_config/blob/master/zprofile-template "zprofile-template"

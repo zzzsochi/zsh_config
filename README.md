@@ -28,6 +28,8 @@
 
     curl -L https://raw.github.com/zzzsochi/zsh_config/master/install.sh | zsh
 
+**Warning!** This command quietly replace your `~/.zshrc` and `~/.zsh`.
+
 ### Manual
 
     git clone git://github.com/zzzsochi/zsh_config.git ~.zsh

@@ -44,7 +44,7 @@
 
 ## Configuration
 
-All configuration locate in one file: [~/zprofile][zprofile].
+All configuration locate in one file: [~/.zprofile][zprofile].
 
 [zprofile]: https://github.com/zzzsochi/zsh_config/blob/master/zprofile-template "zprofile-template"
 

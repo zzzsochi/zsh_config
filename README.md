@@ -30,11 +30,11 @@
 
 ### Manual
 
-	git clone git://github.com/zzzsochi/zsh_config.git
-	cd zsh_config
-    ./install.sh install
-    cd ..
-    rm -rf zsh_config
+    git clone git://github.com/zzzsochi/zsh_config.git ~.zsh
+    ln -s ~/.zsh/zshrc ~/.zshrc
+    cp ~/.zsh/zprofile-template .zprofile
+    vim .zprofile
+    logout
 
 ## Update
 

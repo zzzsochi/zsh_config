@@ -16,9 +16,11 @@
 
 * [zsh][zsh]
 * [git][git] (for install and update)
+* [culr][curl] (for quick install)
 
 [zsh]: http://www.zsh.org "Index to zsh information"
 [git]: http://git-scm.com "git's official website"
+[curl]: http://curl.haxx.se/ "$ sudo aptitude install curl"
 
 ## Installation
 

@@ -28,19 +28,22 @@ function print_help() {
 
 
 if [ -z "$1" ]; then
+    echo "Getting zsh config..."
     rm -rf "$ZSH"
-    git clone "$ZSH_REPO" "$ZSH"
-    cd "$ZSH"
-    chmod +x install.sh
-    ./install.sh install
-    cd -
+    git clone  --quiet "$ZSH_REPO" "$ZSH"
+    chmod +x "$ZSH/install.sh"
+    "$ZSH/install.sh" install
 
 elif [ "$1" == "install" ]; then
-    ln -sf ~/.zsh/zshrc ~/.zshrc
+    ln -sf "$ZSH/zshrc" ~/.zshrc
 
     if [ ! -f ~/.zprofile ]; then
         cp "$ZSH/zprofile-template" "$HOME/.zprofile"
+    else
+        echo "$HOME/.zprofile is exists! Skip..."
     fi
+
+    echo "Please restart zsh..."
 
 elif [ "$1" == "help" ]; then
     print_help

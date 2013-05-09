@@ -26,7 +26,7 @@
 
 ### Automatic
 
-    curl -L https://raw.github.com/zzzsochi/zsh_config/master/install.sh | sh
+    curl -L https://raw.github.com/zzzsochi/zsh_config/master/install.sh | zsh
 
 ### Manual
 
@@ -45,3 +45,7 @@
 All configuration locate in one file: [~/zprofile][zprofile].
 
 [zprofile]: https://github.com/zzzsochi/zsh_config/blob/master/zprofile-template "zprofile-template"
+
+## TODO
+
+* Fix install.sh for work with `bash` and `sh`

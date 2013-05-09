@@ -51,3 +51,7 @@ All configuration locate in one file: [~/.zprofile][zprofile].
 ## TODO
 
 * Fix install.sh for work with `bash` and `sh`
+* Function for install and prepare [pythonbrew][pbrew_url] or [virtualenvwrapper][venvwrap_url]
+
+[pbrew_url]: https://github.com/utahta/pythonbrew "pythonbrew on github"
+[venvwrap_url]: https://bitbucket.org/dhellmann/virtualenvwrapper "virtualenvwrapper on bitbucket"

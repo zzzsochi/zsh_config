@@ -3,6 +3,8 @@
 
 # ZSH_REPO="git://github.com/zzzsochi/zsh_config.git"
 
+# DISABLE_GRC=1
+
 ## choose between pythonbrew and virtualenvwrapper
 
 # PYTHON_MANAGER=pythonbrew

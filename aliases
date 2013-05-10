@@ -22,24 +22,25 @@ else
     alias mkdir='nocorrect mkdir'
 fi
 
-if [ -f "/usr/bin/grc" ]; then
-    export GRC="/usr/bin/grc --colour=auto"
-else
-    export GRC="$ZSH/grc/grc --grcat=$ZSH/grc/grcat --colour=auto"
-    alias grc="$GRC"
-fi
+if [[ $DISABLE_GRC != 1 ]]; then
+    if [ -f "/usr/bin/grc" ]; then
+        export GRC="/usr/bin/grc --colour=auto"
+    else
+        export GRC="$ZSH/grc/grc --grcat=$ZSH/grc/grcat --colour=auto"
+        alias grc="$GRC"
+    fi
 
-if [ "$GRC" ]; then
-    alias cat="$GRC cat"
-    alias .configure="$GRC .configure"
-    alias cvs="$GRC cvs"
-    alias diff="$GRC diff"
-    alias gcc="$GRC gcc"
-    alias head="$GRC head"
-    alias make="$GRC make"
-    alias netstat="$GRC netstat"
-    alias ping="$GRC ping"
-    alias tail="$GRC tail"
-    alias traceroute="$GRC traceroute"
+    if [ "$GRC" ]; then
+        alias cat="$GRC cat"
+        alias .configure="$GRC .configure"
+        alias cvs="$GRC cvs"
+        alias diff="$GRC diff"
+        alias gcc="$GRC gcc"
+        alias head="$GRC head"
+        alias make="$GRC make"
+        alias netstat="$GRC netstat"
+        alias ping="$GRC ping"
+        alias tail="$GRC tail"
+        alias traceroute="$GRC traceroute"
+    fi
 fi
-

@@ -8,19 +8,12 @@
 4. Integration with [grc][grc]
 5. Convenient theme
 
-[pbrew_url]: https://github.com/utahta/pythonbrew "pythonbrew on github"
-[venvwrap_url]: https://bitbucket.org/dhellmann/virtualenvwrapper "virtualenvwrapper on bitbucket"
-[grc]: http://kassiopeia.juls.savba.sk/~garabik/software/grc.html "Generic Colouriser" 
-
 ## Requirements
 
 * [zsh][zsh]
 * [git][git] (for install and update)
 * [culr][curl] (for quick install)
-
-[zsh]: http://www.zsh.org "Index to zsh information"
-[git]: http://git-scm.com "git's official website"
-[curl]: http://curl.haxx.se/ "$ sudo aptitude install curl"
+* [pip][pip] (for install [pythonbrew][pbrew_url] or [virtualenvwrapper][venvwrap_url])
 
 ## Installation
 
@@ -28,7 +21,7 @@
 
     curl -L https://raw.github.com/zzzsochi/zsh_config/master/install.sh | zsh
 
-**Warning!** This command quietly replace your `~/.zshrc` and `~/.zsh`.
+**Warning!** This command quietly rewrite your `~/.zshrc` and `~/.zsh`.
 
 ### Manual
 
@@ -46,12 +39,19 @@
 
 All configuration locate in one file: [~/.zprofile][zprofile].
 
-[zprofile]: https://github.com/zzzsochi/zsh_config/blob/master/zprofile-template "zprofile-template"
-
 ## TODO
 
 * Fix install.sh for work with `bash` and `sh`
 * Function for install and prepare [pythonbrew][pbrew_url] or [virtualenvwrapper][venvwrap_url]
+* Bug: on Debian 7 [grc][grc] working incorrectly
+* Need flag for disable [grc][grc]
 
 [pbrew_url]: https://github.com/utahta/pythonbrew "pythonbrew on github"
 [venvwrap_url]: https://bitbucket.org/dhellmann/virtualenvwrapper "virtualenvwrapper on bitbucket"
+[grc]: http://kassiopeia.juls.savba.sk/~garabik/software/grc.html "Generic Colouriser" 
+[zsh]: http://www.zsh.org "Index to zsh information"
+[git]: http://git-scm.com "git's official website"
+[curl]: http://curl.haxx.se/ "$ sudo aptitude install curl"
+[pip]: http://pip-installer.org "pip"
+
+[zprofile]: https://github.com/zzzsochi/zsh_config/blob/master/zprofile-template "zprofile-template"

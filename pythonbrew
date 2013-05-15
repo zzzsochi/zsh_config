@@ -1,10 +1,89 @@
 # pythonbrew
 
-[ -z "$PYTHONBREW_ROOT" ] && export PYTHONBREW_ROOT="$HOME/.pythonbrew"
-[ -z "$PYTHONBREW_RC" ] && export PYTHONBREW_RC="$PYTHONBREW_ROOT/etc/bashrc"
+function init_python_manager() {
+    [ -z "$PYTHONBREW_ROOT" ] && export PYTHONBREW_ROOT="$HOME/.pythonbrew"
+    [ -z "$PYTHONBREW_RC" ] && export PYTHONBREW_RC="$PYTHONBREW_ROOT/etc/bashrc"
 
-[ -s "$PYTHONBREW_RC" ] && source "$PYTHONBREW_RC"
+    if [ -s "$PYTHONBREW_RC" ]; then
+        source "$PYTHONBREW_RC"
+        [ ! -z "$PYTHONBREW_SWITCH" ] && pythonbrew switch "$PYTHONBREW_SWITCH" > /dev/null
+        [ ! -z "$PYTHONBREW_VENV" ] && pythonbrew venv use "$PYTHONBREW_VENV" > /dev/null
 
-[ ! -z "$PYTHONBREW_SWITCH" ] && pythonbrew switch "$PYTHONBREW_SWITCH" > /dev/null
-[ ! -z "$PYTHONBREW_VENV" ] && pythonbrew venv use "$PYTHONBREW_VENV" > /dev/null
+    else
+        echo "Pythonbrew not installed or not setuped!"
+        echo "Please execute setup_python_manager manualy, for setup this."
+        return 1
 
+    fi
+}
+
+function setup_python_manager() {
+    if [[ $1 == '-f' ]]; then
+        sudo pip install pythonbrew
+        rehash
+        pythonbrew_install
+        source "$PYTHONBREW_RC"
+        pythonbrew update
+
+        if [ ! -z "$PYTHONBREW_SWITCH" ]; then
+            pythonbrew install "$PYTHONBREW_SWITCH"
+            pythonbrew switch "$PYTHONBREW_SWITCH"
+        fi
+
+        if [ ! -z "$PYTHONBREW_VENV" ]; then
+            pythonbrew venv create "$PYTHONBREW_VENV"
+            pythonbrew venv use "$PYTHONBREW_VENV"
+        fi
+
+        return 0
+    fi
+
+    which -s pythonbrew_install > /dev/null
+    if [[ $? != 0 ]]; then
+        echo "Installing pythonbrew..."
+        echo "> sudo pip intall pythonbrew..."
+        sudo pip intall pythonbrew
+        [ $? != 0 ] && (echo "Something wrong!"; return 1)
+
+        rehash
+    fi
+
+    if [ ! -s "$PYTHONBREW_RC" ]; then
+        echo "Setting up pythonbrew in '$PYTHONBREW_ROOT'..."
+        pythonbrew_install
+        source "$PYTHONBREW_RC"
+        [ $? != 0 ] && (echo "Something wrong!"; return 1)
+    fi
+
+    if [ ! -z "$PYTHONBREW_SWITCH" ]; then
+        pythonbrew switch "$PYTHONBREW_SWITCH"
+
+        if [ $? != 0 ]; then
+            echo "Installing Python-$PYTHONBREW_SWITCH..."
+            pythonbrew install "$PYTHONBREW_SWITCH"
+            rehash
+            pythonbrew switch "$PYTHONBREW_SWITCH"
+
+            [ $? != 0 ] && (echo "Something wrong!"; return 1)
+
+        fi
+    fi
+
+    if [ ! -z "$PYTHONBREW_VENV" ]; then
+        pythonbrew venv use "$PYTHONBREW_VENV"
+
+        if [ $? != 0 ]; then
+            echo "Creating virtual environment '$PYTHONBREW_VENV'..."
+            pythonbrew venv create "$PYTHONBREW_VENV"
+            pythonbrew venv use "$PYTHONBREW_VENV"
+
+            [ $? != 0 ] && (echo "Something wrong!"; return 1)
+
+        fi
+    fi
+
+    pythonbrew update
+    init_python_manager
+}
+
+init_python_manager

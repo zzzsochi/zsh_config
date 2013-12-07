@@ -16,7 +16,9 @@ source "$ZSH/zkbd"
 source "$ZSH/aliases"
 
 # load python-specific configs
-if [[ $PYTHON_MANAGER == "pythonbrew" ]]; then
+if [[ $PYTHON_MANAGER == "pyenv" ]]; then
+    source "$ZSH/pyenv"
+elif [[ $PYTHON_MANAGER == "pythonbrew" ]]; then
     source "$ZSH/pythonbrew"
 elif [[ $PYTHON_MANAGER == "virtualenvwrapper" ]]; then
     source "$ZSH/virtualenvwrapper"

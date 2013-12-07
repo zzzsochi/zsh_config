@@ -7,8 +7,13 @@
 
 ## choose between pythonbrew and virtualenvwrapper
 
+# PYTHON_MANAGER=pyenv
 # PYTHON_MANAGER=pythonbrew
 # PYTHON_MANAGER=virtualenvwrapper
+
+## pyenv settings
+
+# export PYENV_ROOT="$HOME/.pyenv"
 
 ## pythonbrew settings
 

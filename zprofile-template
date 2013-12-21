@@ -3,6 +3,9 @@
 
 # ZSH_REPO="git://github.com/zzzsochi/zsh_config.git"
 
+# DISABLE_ALIASES=1
+# DISABLE_COMPLETION=1
+# DISABLE_ZKDB=1
 # DISABLE_GRC=1
 
 ## choose between pythonbrew and virtualenvwrapper

@@ -1,10 +1,10 @@
 typeset -g -A key
 
-key[F1]='^[OP'
-key[F2]='^[OQ'
-key[F3]='^[OR'
-key[F4]='^[OS'
-key[F5]='^[[15~'
+key[F1]='^[[[A'
+key[F2]='^[[[B'
+key[F3]='^[[[C'
+key[F4]='^[[[D'
+key[F5]='^[[[E'
 key[F6]='^[[17~'
 key[F7]='^[[18~'
 key[F8]='^[[19~'
@@ -19,13 +19,13 @@ key[Insert]='^[[2~'
 key[Delete]='^[[3~'
 key[PageUp]='^[[5~'
 key[PageDown]='^[[6~'
-key[Home]='^[OH'
-key[End]='^[OF'
+key[Home]='^[[1~'
+key[End]='^[[4~'
 
 key[Up]='^[[A'
 key[Left]='^[[D'
 key[Down]='^[[B'
 key[Right]='^[[C'
 
-key[Menu]=''
-
+key[AltLeft]='^[[1;9D'
+key[AltRight]='^[[1;9C'

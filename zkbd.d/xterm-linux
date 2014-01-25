@@ -27,5 +27,5 @@ key[Left]='^[[D'
 key[Down]='^[[B'
 key[Right]='^[[C'
 
-key[Menu]=''
-
+key[AltLeft]='^[[1;9D'
+key[AltRight]='^[[1;9C'

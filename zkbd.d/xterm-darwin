@@ -26,6 +26,3 @@ key[Up]='^[[A'
 key[Left]='^[[D'
 key[Down]='^[[B'
 key[Right]='^[[C'
-
-key[Menu]=''
-

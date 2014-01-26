@@ -58,3 +58,6 @@ fi
 
 [[ -n ${key[AltLeft]} ]] && bindkey "${key[AltLeft]}" backward-word
 [[ -n ${key[AltRight]} ]] && bindkey "${key[AltRight]}" forward-word
+
+# For my iTerm2 -- Alt+Backspace
+bindkey '^[[1;1b' backward-delete-word

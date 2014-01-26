@@ -1,6 +1,8 @@
 # zkbd
 
 autoload zkbd
+autoload up-line-or-history
+autoload down-line-or-history
 
 [ ! -d ~/.zsh/zkbd.d ] && mkdir -p ~/.zsh/zkbd.d
 

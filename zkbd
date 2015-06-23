@@ -12,6 +12,9 @@ if [[ $OSTYPE == darwin* ]]; then
 elif [[ $OSTYPE == linux-gnu && $TERM == xterm* ]]; then
     local file_name=xterm-linux
 
+elif [[ $OSTYPE == linux-gnueabi && $TERM == xterm* ]]; then
+    local file_name=xterm-linux
+
 elif [[ $OSTYPE == linux-gnu && $TERM == linux* ]]; then
     local file_name=console-linux
 
@@ -60,4 +63,4 @@ fi
 [[ -n ${key[AltRight]} ]] && bindkey "${key[AltRight]}" forward-word
 
 # For my iTerm2 -- Alt+Backspace
-bindkey '^[[1;1b' backward-delete-word
+bindkey '^H' backward-delete-word
